@@ -31,53 +31,60 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
-
           //column is wrapped with a form to make it submittable and to do validation and thus textformfield was used specifically
-          child: Form(
-            key: formKey, //a key is passed which helps us during submision
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Center(
-                  child: Text(
-                    "SignUp Page",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                AuthField(hintText: "Email", controller: emailController),
-                const SizedBox(height: 15),
-                AuthField(hintText: "Name", controller: nameController),
-                const SizedBox(height: 15),
-                AuthField(
-                  hintText: "Password",
-                  controller: passwordController,
-                  isObscureText: true,
-                ),
-                const SizedBox(height: 20),
-                const AuthGradientButton(),
-                const SizedBox(height: 20),
-                //rich text allows us to write multiple text of different styles in a straight line
-                RichText(
-                  text: TextSpan(
-                    text: "Already have an account ? ",
-                    style: Theme.of(context).textTheme.titleMedium,
-                    children: [
-                      TextSpan(
-                        text: "Sign In",
+          child: Center(
+            child: Form(
+              key: formKey, //a key is passed which helps us during submision
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Center(
+                      child: Text(
+                        "SignUp Page",
                         style: TextStyle(
-                          color: AppPallete.gradient2,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 30),
+                    AuthField(hintText: "Email", controller: emailController),
+                    const SizedBox(height: 15),
+                    AuthField(hintText: "Name", controller: nameController),
+                    const SizedBox(height: 15),
+                    AuthField(
+                      hintText: "Password",
+                      controller: passwordController,
+                      isObscureText: true,
+                    ),
+                    const SizedBox(height: 20),
+                    const AuthGradientButton(),
+                    const SizedBox(height: 20),
+                    //rich text allows us to write multiple text of different styles in a straight line
+                    RichText(
+                      text: TextSpan(
+                        text: "Already have an account ? ",
+                        style: Theme.of(context).textTheme.titleMedium,
+                        children: [
+                          TextSpan(
+                            text: "Sign In",
+                            style: TextStyle(
+                              color: AppPallete.gradient2,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
