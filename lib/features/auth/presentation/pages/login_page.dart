@@ -1,30 +1,28 @@
-import 'package:blog_app/features/auth/presentation/pages/login_page.dart';
+import 'package:blog_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:blog_app/features/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => SignupPage());
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => LoginPage());
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _LoginState extends State<LoginPage> {
   //key is need during submission of a form
   final formKey = GlobalKey<FormState>();
   //allows to access the form from outside its widget tree
 
   //controllers are created to get the value of input from a text field
-  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -49,7 +47,7 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     const Center(
                       child: Text(
-                        "SignUp Page",
+                        "Login Page",
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -59,28 +57,26 @@ class _SignupPageState extends State<SignupPage> {
                     const SizedBox(height: 30),
                     AuthField(hintText: "Email", controller: emailController),
                     const SizedBox(height: 15),
-                    AuthField(hintText: "Name", controller: nameController),
-                    const SizedBox(height: 15),
                     AuthField(
                       hintText: "Password",
                       controller: passwordController,
                       isObscureText: true,
                     ),
                     const SizedBox(height: 20),
-                    const AuthGradientButton(text: "Sign Up"),
+                    const AuthGradientButton(text: "Login"),
                     const SizedBox(height: 20),
                     //rich text allows us to write multiple text of different styles in a straight line
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, LoginPage.route());
+                        Navigator.push(context, SignupPage.route());
                       },
                       child: RichText(
                         text: TextSpan(
-                          text: "Already have an account ? ",
+                          text: "Don't have an account ? ",
                           style: Theme.of(context).textTheme.titleMedium,
                           children: [
                             TextSpan(
-                              text: "Sign In",
+                              text: "Signup",
                               style: TextStyle(
                                 color: AppPallete.gradient2,
                                 fontWeight: FontWeight.bold,
