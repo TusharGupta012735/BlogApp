@@ -16,7 +16,7 @@ abstract interface class AuthRemoteDataSource {
 class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceimpl(this.supabaseClient);
-  
+
   @override
   Future<String> logInWithEmailPassword({
     required String email,
@@ -44,6 +44,5 @@ class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
     } catch (e) {
       throw ServerException(e.toString());
     }
-    ;
   }
 }
