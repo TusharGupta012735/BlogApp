@@ -63,7 +63,7 @@ class _LoginState extends State<LoginPage> {
                       isObscureText: true,
                     ),
                     const SizedBox(height: 20),
-                    const AuthGradientButton(text: "Login"),
+                    AuthGradientButton(text: "Login", onPressed: () {}),
                     const SizedBox(height: 20),
                     //rich text allows us to write multiple text of different styles in a straight line
                     GestureDetector(
