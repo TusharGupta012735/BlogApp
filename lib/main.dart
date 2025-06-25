@@ -16,13 +16,19 @@ void main() async {
     url: AppSecrets.supabaseUrl,
   );
   runApp(
+    //inside the runApp we wrap our app with multiblocprovider
     MultiBlocProvider(
       providers: [
+        //inside the providers we list a blocprovider
         BlocProvider(
           create:
-              (_) => AuthBloc(
-                userSignUp: UserSignUp(
-                  AuthRepositoryImpl(AuthRemoteDataSourceimpl(supabase.client)),
+              (_) => AuthBloc( //authbloc is the state for authorisation
+                userSignUp: UserSignUp( // authorisation state requires a usecase where a user is signed up using information provided and methods from repository implementation "which method to call"
+                  AuthRepositoryImpl( //handles output of the function called
+                    AuthRemoteDataSourceimpl( // actually contains the logic to connect to backend
+                      supabase.client
+                    ),
+                  ),
                 ),
               ),
         ),
