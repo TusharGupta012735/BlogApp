@@ -29,3 +29,4 @@ class UserSignupParams {
     required this.password,
   });
 }
+

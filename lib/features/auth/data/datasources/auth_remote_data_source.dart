@@ -23,8 +23,18 @@ class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
   Future<UserModel> logInWithEmailPassword({
     required String email,
     required String password,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    try {
+      final response = await supabaseClient.auth.signInWithPassword(
+        password: password,
+        email: email,
+      );
+      return response.user != null
+          ? UserModel.fromJson(response.user!.toJson())
+          : throw ServerException("User is null ");
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
   }
 
   @override
@@ -41,7 +51,7 @@ class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
       );
 
       return response.user != null
-      // we pass the user data as a json file and inside the user model defined we parse a usermodel from that json
+          // we pass the user data as a json file and inside the user model defined we parse a usermodel from that json
           ? UserModel.fromJson(response.user!.toJson())
           : throw ServerException("User is null ");
     } catch (e) {
