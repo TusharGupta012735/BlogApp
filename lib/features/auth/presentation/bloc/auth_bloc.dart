@@ -1,7 +1,8 @@
 import 'package:blog_app/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:blog_app/features/auth/domain/entities/user.dart' as myUser;
 part 'auth_event.dart';
 part 'auth_state.dart';
 
