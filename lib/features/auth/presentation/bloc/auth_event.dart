@@ -17,3 +17,6 @@ final class AuthSignIn extends AuthEvent {
 
   AuthSignIn({required this.email, required this.password});
 }
+
+//doesnt require any parameters
+final class AuthIsUserLoggedIn extends AuthEvent{}
