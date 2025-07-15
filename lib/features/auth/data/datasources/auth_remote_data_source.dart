@@ -32,7 +32,9 @@ class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
             .from('profiles')
             .select("*")
             .eq("id", currentSession!.user.id);
-        return UserModel.fromJson(userData.first);
+        return UserModel.fromJson(
+          userData.first,
+        ).copyWith(email: currentSession!.user.email);
       }
       //.from is used to contact directly with the table in supabase instead of auth
       return null;

@@ -36,7 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
       (r) {
         emit(AuthSuccess(r));
-        print(r.id);
+        print(r.email);
       },
     );
   }
