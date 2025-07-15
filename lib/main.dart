@@ -20,8 +20,21 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  //AuthIsUserLoggedIn this is called inside init state because provider events arent automatically called, login and signup gets called whenever the user interacts with widget tree by pressing buttons but we always check the current session when our app runs
+  @override
+  void initState() {
+    context.read<AuthBloc>().add(AuthIsUserLoggedIn());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
