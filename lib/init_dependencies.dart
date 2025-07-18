@@ -1,3 +1,4 @@
+import 'package:blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/secrets/app_secrets.dart';
 import 'package:blog_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:blog_app/features/auth/data/repository/auth_repository_impl.dart';
@@ -19,6 +20,9 @@ Future<void> initDependencies() async {
   );
   //register lazy singleton is used when we want to create a single instance of a class throughout the app
   serviceLocator.registerLazySingleton(() => supabase.client);
+
+  //core
+  serviceLocator.registerLazySingleton(() => AppUserCubit());
 }
 
 void _initAuth() {
@@ -38,6 +42,7 @@ void _initAuth() {
       userSignUp: serviceLocator(),
       userSignIn: serviceLocator(),
       currentUser: serviceLocator(),
+      appUserCubit: serviceLocator(),
     ),
   );
 }

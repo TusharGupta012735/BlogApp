@@ -1,4 +1,4 @@
-import 'package:blog_app/features/auth/domain/entities/user.dart';
+import 'package:blog_app/core/common/entities/user.dart';
 
 //copy with method to extend the user obtained from table of supabase with email, written using copilot
 extension UserModelCopyWith on UserModel {

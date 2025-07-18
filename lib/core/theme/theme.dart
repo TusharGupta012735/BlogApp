@@ -16,5 +16,10 @@ class AppTheme {
       focusedBorder: _border(AppPallete.gradient2),
     ),
     appBarTheme: AppBarTheme(backgroundColor: AppPallete.backgroundColor),
+    chipTheme: ChipThemeData(
+      backgroundColor: AppPallete.backgroundColor,
+      selectedColor: AppPallete.gradient1,
+      side: BorderSide.none,
+    ),
   );
 }
