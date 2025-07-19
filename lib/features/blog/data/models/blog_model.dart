@@ -29,7 +29,7 @@ class BlogModel extends Blog {
       title: map['title'] as String,
       content: map['content'] as String,
       imageUrl: map['imageUrl'] as String,
-      topics: List<String>.from(map['topics'] as List<String>),
+      topics: List<String>.from(map['topics'] as List<dynamic>),
       updatedAt:
           map['updatedAt'] == null
               ? DateTime.now()

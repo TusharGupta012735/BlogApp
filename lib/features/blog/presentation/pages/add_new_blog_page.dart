@@ -81,11 +81,15 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
           if (state is BlogFailure) {
             showSnackBar(context, state.error);
           } else if (state is BlogSuccess) {
-            Navigator.pushAndRemoveUntil(context, BlogPage.route(), (route) => false);
+            Navigator.pushAndRemoveUntil(
+              context,
+              BlogPage.route(),
+              (route) => false,
+            );
           }
         },
         builder: (context, state) {
-          if(state is BlogLoading) {
+          if (state is BlogLoading) {
             return Center(child: CircularProgressIndicator());
           }
           return SingleChildScrollView(
@@ -149,7 +153,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                                 ]
                                 .map(
                                   (e) => Padding(
-                                    padding: const EdgeInsets.all(24.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: GestureDetector(
                                       onTap: () {
                                         if (selected.contains(e)) {
