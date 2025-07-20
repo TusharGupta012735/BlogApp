@@ -97,6 +97,10 @@ CREATE TABLE blogs (
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+#### Future Scope
 
-This project is licensed under the MIT License - see the LICENSE file for details
+1. Implement Logout functionality
+2. Filter to sort the blogs by topic
+3. Edit profile and theme using settings page
+4. Make the blogs scrollable to navigate between one another
+5. Improve UI
