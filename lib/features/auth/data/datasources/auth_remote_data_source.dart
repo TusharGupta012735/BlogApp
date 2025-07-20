@@ -18,11 +18,11 @@ abstract interface class AuthRemoteDataSource {
 
 //datasources in data file
 class AuthRemoteDataSourceimpl extends AuthRemoteDataSource {
-  @override
-  Session? get currentSession => supabaseClient.auth.currentSession;
-
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceimpl(this.supabaseClient);
+
+  @override
+  Session? get currentSession => supabaseClient.auth.currentSession;
 
   @override
   Future<UserModel?> getCurrentUser() async {
