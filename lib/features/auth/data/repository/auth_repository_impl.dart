@@ -1,5 +1,4 @@
 import 'package:blog_app/core/network/connection_checker.dart';
-import 'package:blog_app/core/utils/show_snackbar.dart';
 import 'package:blog_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:blog_app/features/auth/data/models/user_model.dart';
 import 'package:blog_app/core/common/entities/user.dart';
@@ -7,7 +6,6 @@ import 'package:blog_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:blog_app/core/error/exceptions.dart';
 import 'package:blog_app/core/error/failure.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final ConnectionChecker connectionChecker;
